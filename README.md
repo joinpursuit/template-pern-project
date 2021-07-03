@@ -20,27 +20,6 @@
 - **back-end** - everything to do with the express/postgres backend
 - **front-end** - everything to do with the create-react-app front-end
 
-### `back-end` Set Up
-
-**/back-end**
-
-make sure you are on the same level as the `package.json` of the `back-end` directory
-
-- `touch .env`
-
-```
-PORT=3333
-PG_HOST=localhost
-PG_PORT=5432
-PG_DATABASE=<your_db_name_here>
-PG_USER=postgres
-```
-
-# PERN Final Project Template
-
-- select `use this template`
-- clone this repo
-
 ## Getting Started
 
 ### Project Structure
@@ -88,7 +67,7 @@ Test app locally. If it does not work locally, it will not work on Heroku.
 
 Fix bugs.
 
-When ready,
+When ready:
 
 - `heroku create`
 - `git add .`
@@ -111,7 +90,7 @@ In the search bar `Quickly add add-ons` - search for `postgres` - choose `heroku
 
 ![](./assets/heroku-database-dash.png)
 
-You will need to make these key value pairs in your heroku app:
+You will need to make these key value pairs in your heroku app
 
 **IMPORTANT**
 The `keys` must match perfectly with what is in your `db/dbConfig.js` file and your local `.env`
@@ -127,7 +106,7 @@ PG_HOST=ec2-55-227-246-76.compute-1.amazonaws.com
 PG_PORT=5432
 PG_DATABASE=d9bq2bk2s4ilde
 PG_USER=bcwmtakzkmkdxr
-PG_PASSWORD=afb0a7a9396af1bac763154f5649e049ce28b810658bef0ded7efde6
+PG_PASSWORD=afb0a7a9396af1bac763154f5649e049ce280658bef0ded7efde6
 ```
 
 ![](./assets/heroku-config-vars.png)
@@ -161,7 +140,7 @@ Note you should set up the
 
 ### `front-end` Set Up
 
-**/back-end**
+**/front-end**
 
 - `cd front-end`
 - `npm install`
@@ -176,7 +155,7 @@ Make sure your back-end is still running. You should see an unordered list of th
 
 Go to netlify, choose `New site from Git`
 
-- choose continuos deployment, github.
+- choose continuos deployment, GitHub.
 - configure the netlify app on GitHub
 
 Follow the prompts to add this project repo to Netlify
@@ -185,3 +164,5 @@ Once, authorized, configure to launch app from
 - Base directory: `front-end`
 - Build command: `npm run build`
 - Publish directory: `build` (may appear as `front-end/build`)
+
+![](./assets/netlify-deploy-settings.png)

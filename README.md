@@ -5,7 +5,6 @@
 
 ## Getting Started
 
-
 ### Project Structure
 
 ```
@@ -106,9 +105,11 @@ Go back to the heroku database view => settings
 
 Run the following:
 
-- `\i ./db/schema.sql`
+- update the `\i ./db/prod_schema.sql` with the PG_DATABASE value from Heroku
+- `\i ./db/prod_schema.sql`
   - success should say `CREATE TABLE`
-- `\i ./db/seed.sql`
+- update the `\i ./db/prod_seed.sql` with the PG_DATABASE value from Herkou
+- `\i ./db/prod_seed.sql`
   - success should say `INSERT 0 7`
 - `\q`
 

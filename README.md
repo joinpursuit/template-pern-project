@@ -128,13 +128,18 @@ Note you should set up the
 **/front-end**
 
 - `cd front-end`
-- `npm install`
+- `npm instal`
+- `touch .env`
+
+Replace the URL given with your new heroku URL
+
+**.env**
+
+```
+REACT_APP_API_URL=https://mysterious-spire-49483.herokuapp.com
+```
 
 - `npm start`
-
-**src/util/apiURL.js**
-
-Replace the placeholder heroku app with your heroku app URL that you set up earlier
 
 Make sure your back-end is still running. You should see an unordered list of the days of the week, coming from your back-end. If it does not work locally, it will not work when it is deployed. Keep debugging until it works
 
@@ -149,5 +154,18 @@ Once, authorized, configure to launch app from
 - Base directory: `front-end`
 - Build command: `npm run build`
 - Publish directory: `build` (may appear as `front-end/build`)
+- add the environmental variable
+
+![](./assets/netlify-deploy-env.png)
 
 ![](./assets/netlify-deploy-settings.png)
+
+Note: if you were starting your own create-react-app from scratch, in order to use react-router, you would need to add the file `_redirects` to `/public`
+
+The content of the `_redirects` file should be
+
+```
+/* /index.html 200
+```
+
+[More info](https://www.netlify.com/blog/2016/07/22/deploy-react-apps-in-less-than-30-seconds/#main)

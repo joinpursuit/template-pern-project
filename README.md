@@ -43,8 +43,8 @@ PG_USER=postgres
 PG_PASSWORD=""
 ```
 
-- `npm run db_init`
-- `npm run db_seed`
+- `npm run db:init`
+- `npm run db:seed`
 
 Test app locally. If it does not work locally, it will not work on Heroku.
 

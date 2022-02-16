@@ -1,5 +1,3 @@
-\c production_database_name;
-
 DROP TABLE IF EXISTS test;
 
 CREATE TABLE test (

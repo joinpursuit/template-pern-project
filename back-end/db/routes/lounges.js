@@ -8,6 +8,6 @@ lounges.delete("/:id", deleteLounge);
 
 lounges.post("/", addLounge);
 
-lounges.patch("/", editLounge);
+lounges.patch("/:id", editLounge);
 
 module.exports = lounges

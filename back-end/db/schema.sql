@@ -13,6 +13,7 @@ CREATE TABLE boroughs(
 
 CREATE TABLE lounges(
     id SERIAL PRIMARY KEY, 
+    Photos TEXT,
     Borough TEXT,
     Zip_Code INTEGER,
     Lounge_Name Text NOT NULL,

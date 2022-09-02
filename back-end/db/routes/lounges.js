@@ -6,8 +6,8 @@ lounges.get("/", getLounges);
 
 lounges.delete("/:id", deleteLounge);
 
-lounges.post("/", addLounge);
+lounges.post("/new", addLounge);
 
-lounges.patch("/:id", editLounge);
+lounges.patch("/:id/edit", editLounge);
 
 module.exports = lounges

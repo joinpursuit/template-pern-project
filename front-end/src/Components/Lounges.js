@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
 
-const API = "https://warm-ravine-05696.herokuapp.com";
+const API = "http://localhost:3333"; // should use Heroku link
 function Lounges() {
   const [Lounges, setLounges] = useState([]);
   
@@ -23,6 +23,7 @@ function Lounges() {
         <Row className="g-2">
           {Lounges.map((lounge, id) => {
             return <Lounge key={id} lounge={lounge} id={id} />;
+            
           })}
         </Row>
       </Container>

@@ -50,11 +50,11 @@ function AddLounge() {
   return (
     <div>
       <section>
-        <h3> Hey there you wanna add a Lounge: </h3>
+        <h3> Hey there, wanna add a Lounge ? </h3>
         <ul>
-          <li>tesing looks</li>
-          <li>Checking if this looks good</li>
-          <li>testing again hey there 5</li>
+          <li>Get all your details</li>
+          <li>Fill in the required fields</li>
+          <li>Congratulations, you've added a new lounge !</li>
         </ul>
       </section>
       <br />

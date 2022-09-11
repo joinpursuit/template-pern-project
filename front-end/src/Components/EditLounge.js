@@ -28,7 +28,7 @@ export default function EditLounge() {
 
   const updatelounge = (updatedlounge) => {
     axios
-      .put(`${API}/Lounges/${id}`, updatedlounge)
+      .patch(`${API}/Lounges/${id}/edit`, updatedlounge)
       .then(() => {
         navigate(`/Lounges`);
       })

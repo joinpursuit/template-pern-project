@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 function Lounge({ lounge }) {
   console.log(lounge)
   return (
-    <Col xs={2} className='g-4'>
+    <Col xs={2} className='g-4 w-50'>
       <Card className="text-center" >
         <Card.Img variant="top" src={lounge.photos} alt="pic"></Card.Img>
         <Card.Title>

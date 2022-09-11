@@ -32,7 +32,7 @@ const deleteLounge = async (req, res) => {
 
 const addLounge = async (req, res) => {
     try {
-      const { Photos, Borough, Zip_Code, Lounge_Name, Phone_Number, Days_Closed, Street_Address,Serves_Hookah } = req.params;
+      const { Photos, Borough, Zip_Code, Lounge_Name, Phone_Number, Days_Closed, Street_Address,Serves_Hookah } = req.body;
       const addLounge = await db.one(
         `INSERT INTO lounges (Photos, Borough, Zip_Code, Lounge_Name, Phone_Number, Days_Closed, Street_Address, Serves_Hookah)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,

@@ -41,7 +41,7 @@ function AddLounge() {
       e.stopPropagation();
     }
     if (e.target.checkValidity()) {
-      console.log("function being run")
+      console.log("function being run", lounge)
       addLounge(lounge);
     }
     setValidated(true);
@@ -171,11 +171,11 @@ function AddLounge() {
           <br/>
           <Form.Group>
             <Form.Label htmlFor="name">Serves Hookah:</Form.Label>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Do They Serve Hookah</option>
+            <Form.Select aria-label="Default select example" id="Serves_Hookah" onChange={handleTextChange}>
+              <option disabled>Do They Serve Hookah?</option>
               <option value="true">True</option>
               <option value="false">False</option>
-            </select>
+            </Form.Select>
           </Form.Group>
           <br/>
           <Button variant="secondary" type="submit">

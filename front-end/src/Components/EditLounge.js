@@ -26,11 +26,13 @@ export default function EditLounge() {
       .catch((err) => console.log(err));
   }, [id]);
 
-  const updatelounge = (updatedlounge) => {
+  const updatelounge = (updatedlounge, id) => {
+    console.log("lounge",updatedlounge);
+    console.log("id",id);
     axios
       .patch(`${API}/Lounges/${id}/edit`, updatedlounge)
       .then(() => {
-        navigate(`/Lounges`);
+        navigate(`/Lounges/${id}`);
       })
       .catch((error) => console.log(error));
   };
@@ -58,11 +60,11 @@ export default function EditLounge() {
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Form.Group>
             <Form.Label htmlFor="name">Serves Hookah:</Form.Label>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Do They Serve Hookah</option>
+            <Form.Select aria-label="Default select example" id="Serves_Hookah" onChange={handleTextChange}>
+              <option disabled>Do They Serve Hookah?</option>
               <option value="true">True</option>
               <option value="false">False</option>
-            </select>
+            </Form.Select>
           </Form.Group>
           <br/>
           <Row>

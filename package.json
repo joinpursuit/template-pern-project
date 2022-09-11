@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-     "start": "cd back-end && npm i && npm start",
-     "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cd back-end && npm i && npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/joinpursuit/pern-final-project/issues"
   },
-  "homepage": "https://github.com/joinpursuit/pern-final-project#readme"
+  "homepage": "https://github.com/joinpursuit/pern-final-project#readme",
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
 }

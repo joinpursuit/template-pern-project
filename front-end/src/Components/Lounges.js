@@ -18,8 +18,6 @@ function Lounges() {
     .catch((err) => console.error(err));
   }, []);
   
-  console.log(`${API}/lounges`);
-  console.log("These are lounges",lounges);
   return (
       <Container fluid>
         <Row className="g-2">

@@ -25,7 +25,6 @@ export default function LoungeDetails() {
       .then((res) => navigate("/lounges"))
       .catch((err) => console.log(err));
   };
-  console.log("lounge",lounge[0]);
 
   return (
     <Container className=" text-center" fluid>
@@ -34,7 +33,7 @@ export default function LoungeDetails() {
           {/* <img src={lounge[0]?.photos} alt={lounge[0]?.lounge_name} /> */}
           <div>
           <img src={lounge[0]?.photos} alt={lounge[0]?.lounge_name} />
-            <h1 class="title">{lounge[0]?.lounge_name}</h1>
+            <h1 className="title">{lounge[0]?.lounge_name}</h1>
             <p>{lounge[0]?.borough}</p>
             <p >{lounge[0]?.street_address}</p>
             <p>{lounge[0]?.phone_number}</p>

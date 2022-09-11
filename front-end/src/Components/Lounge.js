@@ -3,7 +3,6 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 
 function Lounge({ lounge }) {
-  console.log(lounge)
   return (
     <Col xs={2} className='g-4 w-50'>
       <Card className="text-center" >

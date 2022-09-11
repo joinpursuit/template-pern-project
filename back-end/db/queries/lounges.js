@@ -46,7 +46,7 @@ const addLounge = async (req, res) => {
 
 const editLounge = async (req, res) => {
   try {
-    let {Photos} = req.params.Photos;
+    let {Photos} = req.body.Photos;
     let {Borough} = req.params.Borough;
     let {Zip_Code} = req.params.Zip_Code;
     let {Lounge_Name} = req.params.Lounge_Name;
@@ -57,10 +57,11 @@ const editLounge = async (req, res) => {
     let {id} = req.params.id;
     
     let editLounge = await db.any(
-        `UPDATE lounges SET Photos = $Photos, Borough = $Borough, Zip_Code = $Zip_Code, Lounge_Name = $Lounge_Name, Phone_Number = $Phone_Number, Days_Closed = $Days_Closed, Street_Address = $Street_Address, Serves_Hookah= $Serves_Hookah Photos=$Photos WHERE id = $8 RETURNING *`,
-        [Photos, Borough, Zip_Code, Lounge_Name, Phone_Number, Days_Closed, Street_Address,Serves_Hookah, id]
+        `UPDATE lounges SET Photos = $Photos, Borough = $Borough, Zip_Code = $Zip_Code, Lounge_Name = $Lounge_Name, Phone_Number = $Phone_Number, Days_Closed = $Days_Closed, Street_Address = $Street_Address, Serves_Hookah= $Serves_Hookah Photos=$Photos WHERE id = $9 RETURNING *`,
+        [Photos, Borough, Zip_Code, Lounge_Name, Phone_Number, Days_Closed, Street_Address, Serves_Hookah, id]
       );
     res.json(getLounges);
+    return editLounge;
   } catch (err) {
     res.json(err);
   }

@@ -22,11 +22,11 @@ const getSingleLounge = async (req, res) => {
 
 const addLounge = async (lounge) => {
     try {
-      const { Photos, Borough, Zip_Code, Lounge_Name, Phone_Number, Days_Closed, Street_Address,Serves_Hookah } = lounge;
+      const { photos, borough, zip_code, lounge_name, phone_number, days_closed, street_address,serves_hookah } = lounge;
       const newlounge = await db.one(
-        `INSERT INTO lounges (Photos, Borough, Zip_Code, Lounge_Name, Phone_Number, Days_Closed, Street_Address, Serves_Hookah)
+        `INSERT INTO lounges (photos, borough, zip_Code, lounge_Name, phone_number, days_closed, street_address, serves_hookah)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
-        [Photos, Borough, Zip_Code, Lounge_Name, Phone_Number, Days_Closed, Street_Address, Serves_Hookah]
+        [photos, borough, zip_code, lounge_name, phone_number, days_closed, street_address, serves_hookah]
       );
       return newlounge;
     } catch (err) {
@@ -36,10 +36,10 @@ const addLounge = async (lounge) => {
   
 const editLounge = async (lounge, id) => {
     try {
-      const { Photos, Borough, Zip_Code, Lounge_Name, Phone_Number, Days_Closed, Street_Address, Serves_Hookah } = lounge;
+      const { photos, borough, zip_code, lounge_name, phone_number, days_closed, street_address, serves_hookah } = lounge;
       const updatedLounge = await db.one(
-        `UPDATE lounges SET Photos = $1, Borough = $2, Zip_Code = $3, Lounge_Name = $4, Phone_Number = $5, Days_Closed = $6, Street_Address = $7, Serves_Hookah = $8  WHERE id = $9 RETURNING *`,
-        [Photos, Borough, Zip_Code, Lounge_Name, Phone_Number, Days_Closed, Street_Address, Serves_Hookah, id]
+        `UPDATE lounges SET Photos = $1, Borough = $2, Zip_Code = $3, Lounge_Name = $4, Phone_Number = $5, days_Closed = $6, Street_Address = $7, serves_hookah = $8  WHERE id = $9 RETURNING *`,
+        [photos, borough, zip_code, lounge_name, phone_number, days_closed, street_address, serves_hookah, id]
       );
       return updatedLounge
     } catch (err) {

@@ -36,7 +36,8 @@ const createBorough = async (req, res, next) => {
     res.json({
       status: "error",
       payload: null,
-      message: err
+      message: err,
+      req: req.body
     });
   }
 };
@@ -60,12 +61,14 @@ const editBorough= async (req, res, next) => {
       "UPDATE Borough SET Borough=${Borough}  WHERE id=${id} RETURNING *",
       {
         Borough: req.body.Borough,
+        id: req.params.id
       }
     );
     res.json({
       status: "success",
       message: "updated one car",
-      car
+      car,
+      req: req.body
     });
   } catch (err) {
     next(err);

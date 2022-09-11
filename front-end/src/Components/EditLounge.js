@@ -38,7 +38,7 @@ export default function EditLounge() {
   };
 
   const handleTextChange = (e) => {
-    setLounge({ [e.target.id]: e.target.value });
+    setLounge({...lounge, [e.target.id]: e.target.value });
   };
 
   const handleSubmit = (e) => {
@@ -62,9 +62,16 @@ export default function EditLounge() {
             <Form.Label htmlFor="name">Serves Hookah:</Form.Label>
             <Form.Select aria-label="Default select example" id="Serves_Hookah" onChange={handleTextChange}>
               <option  disabled>Do They Serve Hookah?</option>
-              <option value="true">True</option>
-              <option value="false">False</option>
+              <option value={true}>True</option>
+              <option value={false}>False</option>
             </Form.Select>
+            <Form.Control
+                  id="Serves_Hookah"
+                  type="text"
+                  value={lounge.Serves_Hookah}
+                  placeholder="Days_Closed"
+                  onChange={handleTextChange}
+                />
           </Form.Group>
           <br/>
           <Row>
@@ -74,7 +81,7 @@ export default function EditLounge() {
                 <Form.Control
                   id="Days_Closed"
                   type="text"
-                  value={lounge.days_closed}
+                  value={lounge.Days_Closed}
                   placeholder="Days_Closed"
                   onChange={handleTextChange}
                 />

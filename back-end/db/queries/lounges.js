@@ -14,7 +14,12 @@ const getSingleLounge = async (req, res) => {
     let loungeId = req.params.id
     const getOneLounge = await db.any(`SELECT * FROM lounges WHERE id=${loungeId}`);
     
-    res.json(getOneLounge);
+    res.json({
+      status: "success",
+      message: "one lounge",
+      getOneLounge,
+      req: req
+    });
   } catch (err) {
     res.json(err);
   }

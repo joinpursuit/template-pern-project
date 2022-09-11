@@ -23,7 +23,7 @@ const getSingleLounge = async (req, res) => {
 const deleteLounge = async (req, res) => {
   try {
     let {id} = req.params.id;
-    const deleteLounges = await db.any(`DELETE FROM lounges WHERE id = $1 RETURNING *`, id);
+    const deleteLounges = await db.any(`DELETE FROM lounges WHERE id=${id} RETURNING *`);
     res.json(deleteLounges);
   } catch (err) {
     res.json(err);
@@ -45,20 +45,19 @@ const addLounge = async (req, res) => {
   };
 
 const editLounge = async (req, res) => {
-  // try {
-  //   let {Days_Closed} = req.body.days_closed;
-  //   let {Serves_Hookah} = req.body.serves_hookah;
-  //   let {id} = req.params.id;
+  try {
+    let {days_closed} = req.body.days_closed;
+    let {serves_hookah} = req.body.serves_hookah;
+    let {id} = req.params.id;
     
-  //   let editLounge = await db.any(
-  //       `UPDATE lounges SET Days_Closed = $Days_Closed, Serves_Hookah= $Serves_Hookah WHERE id=${id} RETURNING *`,
-  //       [Days_Closed, Serves_Hookah, id]
-  //     );
-  //   res.json(getLounges);
-  //   return editLounge;
-  // } catch (err) {
-  //   res.json(err);
-  // }
+    let editLounge = await db.any(
+        `UPDATE lounges SET Days_Closed = ${days_closed}, Serves_Hookah= ${serves_hookah} WHERE id=${id} RETURNING *`
+      );
+    res.json(getLounges);
+    return editLounge;
+  } catch (err) {
+    res.json(err);
+  }
 };
 
 module.exports = { getLounges, getSingleLounge, deleteLounge , addLounge , editLounge} 

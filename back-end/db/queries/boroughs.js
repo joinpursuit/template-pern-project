@@ -44,7 +44,7 @@ const createBorough = async (req, res, next) => {
 
 const deleteBourgh = async (req, res, next) => {
   try {
-    let result = await db.result("DELETE FROM Borough WHERE id=$1", req.params.id);
+    let result = await db.result("DELETE FROM boroughs WHERE id=$1", req.params.id);
     res.json({
       status: "success",
       message: "You destroyed the car",
@@ -58,7 +58,7 @@ const deleteBourgh = async (req, res, next) => {
 const editBorough= async (req, res, next) => {
   try {
     let car = await db.one(
-      "UPDATE Borough SET Borough=${Borough}  WHERE id=${id} RETURNING *",
+      "UPDATE boroughs SET Borough=${Borough}  WHERE id=${id} RETURNING *",
       {
         Borough: req.body.Borough,
         id: req.params.id

@@ -30,7 +30,7 @@ export default function EditLounge() {
     console.log("lounge",updatedlounge);
     console.log("id",id);
     axios
-      .patch(`${API}/lounges/${id}/edit`, updatedlounge)
+      .put(`${API}/lounges/${id}/edit`, updatedlounge)
       .then(() => {
         navigate(`/lounges/${id}`);
       })
@@ -65,13 +65,13 @@ export default function EditLounge() {
               <option value={true}>True</option>
               <option value={false}>False</option>
             </Form.Select>
-            <Form.Control
+            {/* <Form.Control
                   id="Serves_Hookah"
                   type="text"
                   value={lounge.Serves_Hookah}
                   placeholder="Days_Closed"
                   onChange={handleTextChange}
-                />
+                /> */}
           </Form.Group>
           <br/>
           <Row>

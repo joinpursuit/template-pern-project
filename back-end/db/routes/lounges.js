@@ -18,7 +18,7 @@ lounges.post('/new',  async (req, res) => {
   lounges.put('/:id/edit', async (req, res) => {
     const { id } = req.params; 
     const updatedlounge = await editLounge(req.body, id); 
-    if(updatedlounge.id) {
+    if(id) {
       res.status(200).json(updatedlounge)
     } else {
       res.status(422).json({ error: "unprocessable entity"})

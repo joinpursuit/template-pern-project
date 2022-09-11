@@ -1,7 +1,6 @@
 const db = require("../dbConfig");
 
 const getLounges = async (req, res) => {
-  console.log("Hey We are in route");
   try {
     const getLounge = await db.any("SELECT * FROM lounges");
     res.json(getLounge);

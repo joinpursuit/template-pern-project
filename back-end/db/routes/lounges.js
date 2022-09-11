@@ -1,8 +1,10 @@
 const lounges = require("express").Router();
-const { getLounges, deleteLounge, editLounge, addLounge } = require("../queries/lounges")
+const { getLounges, getSingleLounge, deleteLounge, editLounge, addLounge } = require("../queries/lounges")
 
 
 lounges.get("/", getLounges);
+
+lounges.get('/:id', getSingleLounge );
 
 lounges.delete("/:id", deleteLounge);
 

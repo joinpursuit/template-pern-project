@@ -6,7 +6,6 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/esm/Container";
-import lounge from "./Lounge";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -42,7 +41,7 @@ function AddLounge() {
       e.stopPropagation();
     }
     if (e.target.checkValidity()) {
-      AddLounge(lounge);
+      addLounge(lounge);
     }
     setValidated(true);
   };
@@ -64,7 +63,7 @@ function AddLounge() {
           <Form.Group>
             <Form.Label htmlFor="name">Name:</Form.Label>
             <Form.Control
-              id="name"
+              id="Lounge_Name"
               type="text"
               value={lounge.Lounge_Name}
               placeholder="Name"
@@ -80,9 +79,9 @@ function AddLounge() {
           </Form.Group>
           <br/>
           <Form.Group>
-            <Form.Label htmlFor="Street Address">Street Address:</Form.Label>
+            <Form.Label htmlFor="Street_Address">Street Address:</Form.Label>
             <Form.Control
-              id="Street Address"
+              id="Street_Address"
               type="text"
               value={lounge.Street_Address}
               placeholder="Street Address"
@@ -139,9 +138,9 @@ function AddLounge() {
             <br/>
             <Col md>
               <Form.Group>
-                <Form.Label htmlFor="Zip Code">Zip Code:</Form.Label>
+                <Form.Label htmlFor="Zip_Code">Zip Code:</Form.Label>
                 <Form.Control
-                  id="Zip Code"
+                  id="Zip_Code"
                   type="number"
                   value={lounge.Zip_Code}
                   placeholder="Zip Code"
@@ -152,9 +151,9 @@ function AddLounge() {
           </Row>
           <br/>
           <Form.Group>
-            <Form.Label htmlFor="image">Image:</Form.Label>
+            <Form.Label htmlFor="Photos">Image:</Form.Label>
             <Form.Control
-              id="image"
+              id="Photos"
               type="text"
               value={lounge.Photos}
               pattern="http[s]*://.+"

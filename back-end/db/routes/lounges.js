@@ -6,14 +6,14 @@ lounges.get("/", getLounges);
 
 lounges.get('/:id', getSingleLounge );
 
-// lounges.post('/new',  async (req, res) => {
-//     const createdLounge = await addLounge(req.body);
-//     if(createdLounge.id) {
-//       res.status(200).json({payload:createdLounge, success: true})
-//     } else {
-//       res.status(422).json({payload:"unprocessable entity", success: false, error: "unprocessable entity"})
-//     }
-//   }); 
+lounges.post('/new',  async (req, res) => {
+    const createdLounge = await addLounge(req.body);
+    if(createdLounge.id) {
+      res.status(200).json({payload:createdLounge, success: true})
+    } else {
+      res.status(422).json({payload:"unprocessable entity", success: false, error: "unprocessable entity"})
+    }
+  }); 
   
 //   lounges.put('/:id/edit', async (req, res) => {
 //     const { id } = req.params; 

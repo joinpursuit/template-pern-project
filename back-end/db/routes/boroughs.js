@@ -4,12 +4,12 @@ const { getBorough, getBoroughOne, createBorough, editBorough, deleteBourgh } = 
 
 boroughs.get("/", getBorough);
 
-lounges.get('/:id', getBoroughOne );
+boroughs.get('/:id', getBoroughOne );
 
-lounges.delete("/:id", deleteBourgh);
+boroughs.delete("/:id", deleteBourgh);
 
-lounges.post("/new", createBorough);
+boroughs.post("/new", createBorough);
 
-lounges.patch("/:id/edit", editBorough);
+boroughs.patch("/:id/edit", editBorough);
 
 module.exports = boroughs

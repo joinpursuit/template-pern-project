@@ -15,7 +15,7 @@ function AddLounge() {
 
   const addLounge = (newlounge) => {
     axios
-      .post(`${API}/lounges`, newlounge)
+      .post(`${API}/lounges/new`, newlounge)
       .then(() => navigate(`/lounges`))
       .catch((error) => console.log(error));
   };
@@ -41,6 +41,7 @@ function AddLounge() {
       e.stopPropagation();
     }
     if (e.target.checkValidity()) {
+      console.log("function being run")
       addLounge(lounge);
     }
     setValidated(true);

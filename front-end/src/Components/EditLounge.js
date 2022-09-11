@@ -22,7 +22,7 @@ export default function EditLounge() {
   useEffect(() => {
     axios
       .get(`${API}/Lounges/${id}`)
-      .then((res) => setLounge(res.data.payload))
+      .then((res) => setLounge(res.data))
       .catch((err) => console.log(err));
   }, [id]);
 
@@ -71,8 +71,8 @@ export default function EditLounge() {
                 <Form.Label htmlFor="Days_Closed">Days Closed:</Form.Label>
                 <Form.Control
                   id="Days_Closed"
-                  type="number"
-                  value={lounge.Days_Closed}
+                  type="text"
+                  value={lounge.days_closed}
                   placeholder="Days_Closed"
                   onChange={handleTextChange}
                 />

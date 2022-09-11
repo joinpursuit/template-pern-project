@@ -14,7 +14,7 @@ export default function LoungeDetails() {
   useEffect(() => {
     axios
       .get(`${API}/lounges/${id}`)
-      .then((res) => setLounge(res.data.payload))
+      .then((res) => setLounge(res.data))
       .catch((err) => console.log(err));
   }, [id]);
 
@@ -29,8 +29,8 @@ export default function LoungeDetails() {
     <Container className=" text-center" fluid>
       <article>
         <div>
-          <h2>{lounge.Lounge_Name}</h2>
-          <img src={lounge.Photos} alt={lounge.Lounge_Name} />
+          <h2>{lounge.lounge_name}</h2>
+          <img src={lounge.photos} alt={lounge.lounge_name} />
           <div className="showNavigation">
             <div>
               {" "}

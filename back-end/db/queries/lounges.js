@@ -46,19 +46,19 @@ const addLounge = async (req, res) => {
 
 const editLounge = async (req, res) => {
   try {
-    let {Photos} = req.body.Photos;
-    let {Borough} = req.params.Borough;
-    let {Zip_Code} = req.params.Zip_Code;
-    let {Lounge_Name} = req.params.Lounge_Name;
-    let {Phone_Number} = req.params.Phone_Number;
-    let {Days_Closed} = req.params.Days_Closed;
-    let {Street_Address} = req.params.Street_Address;
-    let {Serves_Hookah} = req.params.Serves_Hookah;
+    let {photos} = req.body.photos;
+    let {borough} = req.body.borough;
+    let {zip_code} = req.body.zip_code;
+    let {lounge_name} = req.body.lounge_name;
+    let {Phone_Number} = req.body.phone_number;
+    let {Days_Closed} = req.body.days_closed;
+    let {Street_Address} = req.body.street_address;
+    let {Serves_Hookah} = req.body.serves_hookah;
     let {id} = req.params.id;
     
     let editLounge = await db.any(
         `UPDATE lounges SET Photos = $Photos, Borough = $Borough, Zip_Code = $Zip_Code, Lounge_Name = $Lounge_Name, Phone_Number = $Phone_Number, Days_Closed = $Days_Closed, Street_Address = $Street_Address, Serves_Hookah= $Serves_Hookah Photos=$Photos WHERE id = $9 RETURNING *`,
-        [Photos, Borough, Zip_Code, Lounge_Name, Phone_Number, Days_Closed, Street_Address, Serves_Hookah, id]
+        [photos, borough, zip_code, lounge_name, Phone_Number, Days_Closed, Street_Address, Serves_Hookah, id]
       );
     res.json(getLounges);
     return editLounge;

@@ -15,7 +15,7 @@ const getBoroughOne = async (req, res, next) => {
     res.json({
       status: "success",
       car,
-      message: "Received ONE CAR!"
+      message: "Received ONE borough!"
     });
   } catch (err) {
     next(err);
@@ -25,12 +25,12 @@ const getBoroughOne = async (req, res, next) => {
 const createBorough = async (req, res, next) => {
   try {
     await db.none(
-      "INSERT INTO boroughs (Borough) VALUES(${Borough})",
-      req.body
+      "INSERT INTO boroughs (Borough) VALUES ('BrooklynKKKK'),",
     );
     res.json({
       status: "succss",
-      message: "New car added"
+      message: "New Borough added",
+      req: req
     });
   } catch (err) {
     res.json({
@@ -47,7 +47,7 @@ const deleteBourgh = async (req, res, next) => {
     let result = await db.result("DELETE FROM boroughs WHERE id=$1", req.params.id);
     res.json({
       status: "success",
-      message: "You destroyed the car",
+      message: "You destroyed the borough",
       result: result
     });
   } catch (err) {
@@ -60,15 +60,15 @@ const editBorough= async (req, res, next) => {
     let car = await db.one(
       "UPDATE boroughs SET Borough=${Borough}  WHERE id=${id} RETURNING *",
       {
-        Borough: req.body.Borough,
+        Borough: req.body,
         id: req.params.id
       }
     );
     res.json({
       status: "success",
-      message: "updated one car",
+      message: "updated one borough",
       car,
-      req: req.body
+      req: req
     });
   } catch (err) {
     next(err);

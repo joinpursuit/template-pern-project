@@ -12,7 +12,7 @@ const getLounges = async (req, res) => {
 const getSingleLounge = async (req, res) => {
   try {
     let loungeId = req.params.id
-    const getSingleLounge = await db.any(`SELECT * FROM users WHERE id=${loungeId}`);
+    const getSingleLounge = await db.any(`SELECT * FROM lounges WHERE id=${loungeId}`);
     
     res.json(getSingleLounge);
   } catch (err) {
@@ -23,7 +23,7 @@ const getSingleLounge = async (req, res) => {
 const deleteLounge = async (req, res) => {
   try {
     let {id} = req.params.id;
-    const deleteLounges = await db.any(`DELETE FROM lounge WHERE id = $1 RETURNING *`, id);
+    const deleteLounges = await db.any(`DELETE FROM lounges WHERE id = $1 RETURNING *`, id);
     res.json(deleteLounges);
   } catch (err) {
     res.json(err);

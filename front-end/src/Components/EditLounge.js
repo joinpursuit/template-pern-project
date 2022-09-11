@@ -21,7 +21,7 @@ export default function EditLounge() {
 
   useEffect(() => {
     axios
-      .get(`${API}/Lounges/${id}`)
+      .get(`${API}/lounges/${id}`)
       .then((res) => setLounge(res.data))
       .catch((err) => console.log(err));
   }, [id]);
@@ -30,15 +30,15 @@ export default function EditLounge() {
     console.log("lounge",updatedlounge);
     console.log("id",id);
     axios
-      .patch(`${API}/Lounges/${id}/edit`, updatedlounge)
+      .patch(`${API}/lounges/${id}/edit`, updatedlounge)
       .then(() => {
-        navigate(`/Lounges/${id}`);
+        navigate(`/lounges/${id}`);
       })
       .catch((error) => console.log(error));
   };
 
   const handleTextChange = (e) => {
-    setLounge({ ...lounge, [e.target.id]: e.target.value });
+    setLounge({ [e.target.id]: e.target.value });
   };
 
   const handleSubmit = (e) => {
@@ -61,7 +61,7 @@ export default function EditLounge() {
           <Form.Group>
             <Form.Label htmlFor="name">Serves Hookah:</Form.Label>
             <Form.Select aria-label="Default select example" id="Serves_Hookah" onChange={handleTextChange}>
-              <option disabled>Do They Serve Hookah?</option>
+              <option  disabled>Do They Serve Hookah?</option>
               <option value="true">True</option>
               <option value="false">False</option>
             </Form.Select>

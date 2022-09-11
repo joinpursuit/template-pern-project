@@ -75,4 +75,47 @@ const editBorough= async (req, res, next) => {
   }
 };
 
+
+
+const deleteLounge = async (req, res) => {
+  try {
+    let {id} = req.params.id;
+    const deleteLounges = await db.any(`DELETE FROM lounges WHERE id=${id} RETURNING *`);
+    res.json(deleteLounges);
+  } catch (err) {
+    res.json(err);
+  }
+};
+
+const addLounge = async (req, res) => {
+    try {
+      const { Photos, Borough, Zip_Code, Lounge_Name, Phone_Number, Days_Closed, Street_Address,Serves_Hookah } = req.body;
+      const addLounge = await db.one(
+        `INSERT INTO lounges (Photos, Borough, Zip_Code, Lounge_Name, Phone_Number, Days_Closed, Street_Address, Serves_Hookah)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
+        [Photos, Borough, Zip_Code, Lounge_Name, Phone_Number, Days_Closed, Street_Address,Serves_Hookah]
+      );
+      return addLounge;
+    } catch (err) {
+      return err;
+    }
+  };
+
+const editLounge = async (req, res) => {
+  console.log("Hey We are in route");
+  try {
+    let {days_closed} = req.body.days_closed;
+    let {serves_hookah} = req.body.serves_hookah;
+    let {id} = req.params.id;
+    
+    let editLounge = await db.any(
+        `UPDATE lounges SET Days_Closed = ${days_closed}, Serves_Hookah= ${serves_hookah} WHERE id=${id} RETURNING *`
+      );
+    res.json(getLounges);
+    return editLounge;
+  } catch (err) {
+    res.json(err);
+  }
+};
+
 module.exports = { getBorough, getBoroughOne, createBorough, editBorough, deleteBourgh }

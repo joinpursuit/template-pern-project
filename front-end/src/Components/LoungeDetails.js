@@ -36,8 +36,8 @@ export default function LoungeDetails() {
             <h1 className="title">{lounge[0]?.lounge_name}</h1>
             <p>{lounge[0]?.borough}</p>
             <p >{lounge[0]?.street_address}</p>
-            <p>{lounge[0]?.phone_number}</p>
-            <p>{lounge[0]?.serves_hookah}</p>
+            <p >Closed on {lounge[0]?.days_closed}</p>
+            <p>Phone Number: {lounge[0]?.phone_number}</p>
             <p>Hookah? {serves_hookah}</p>
           </div>
 

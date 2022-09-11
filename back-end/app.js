@@ -17,7 +17,7 @@ app.use(express.json()); // Parse incoming JSON
 const boroughsRouter = require('./db/routes/boroughs.js');
 const loungesRouter = require('./db/routes/lounges.js');
 
-app.use('/boroughs', boroughsRouter);
+// app.use('/boroughs', boroughsRouter);
 app.use('/lounges', loungesRouter);
 
 /////////////////////////////////////

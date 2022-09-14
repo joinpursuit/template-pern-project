@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
 
-// const API = "http://localhost:3333"; // should use Heroku link
+// const API = "http://localhost:3333"; // should use Heroku/ netlify link
 const API = process.env.REACT_APP_API_URL;
 
 function Lounges() {

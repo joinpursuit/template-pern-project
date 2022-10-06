@@ -9,9 +9,10 @@ const cn = DATABASE_URL
   ? {
       connectionString: DATABASE_URL,
       max: 30,
-      ssl: {
-        rejectUnauthorized: false,
-      },
+ // this key value is only required for heroku deployment
+//       ssl: {
+//         rejectUnauthorized: false,
+//       },
     }
   : {
       host: PG_HOST,

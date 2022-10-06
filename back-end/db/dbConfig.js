@@ -23,4 +23,5 @@ const cn = DATABASE_URL
 
 const db = pgp(cn);
 
+console.log('Postgres connection', cn);
 module.exports = db;

@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/joinpursuit/pern-final-project/issues"
   },
-  "homepage": "https://github.com/joinpursuit/pern-final-project#readme"
+  "homepage": "https://github.com/joinpursuit/pern-final-project#readme",
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
 }

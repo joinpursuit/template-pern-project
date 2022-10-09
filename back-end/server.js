@@ -10,3 +10,8 @@ const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`🎧 Listening on port ${PORT} 🎧 `);
 });
+
+var cors = require('cors')
+
+app.use(cors())
+

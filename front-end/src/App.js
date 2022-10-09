@@ -1,28 +1,32 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-const API = process.env.REACT_APP_API_URL;
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-console.log(API);
+//Components 
+import NavBar from './Components/NavBar';
+
+//Pages
+import Edit from './Pages/Edit';
+import Home from './Pages/Home';
+import Index from './Pages/index';
+import New from './Pages/New';
+import Show from './Pages/Show';
+
 function App() {
-  const [days, setDays] = useState([]);
-  useEffect(() => {
-    axios
-      .get(`${API}/test`)
-      .then(
-        (response) => {
-          setDays(response.data);
-        },
-        (error) => console.log("get", error)
-      )
-      .catch((c) => console.warn("catch", c));
-  }, []);
   return (
-    <div>
-      <ul>
-        {days.map((day) => (
-          <li key={day.name}>{day.name}</li>
-        ))}
-      </ul>
+    <div className="App">
+      <Router>
+       <NavBar/>
+      <main> 
+        <Routes> 
+          <Route path='/' element ={<Home/>}/> 
+          <Route path='/lounges' element={<Index/>}/>
+          <Route path='/lounges/new' element={<New/>}/>
+          <Route path='/lounges/:id' element={<Show/>}/>
+          <Route path='/lounges/:id/edit' element={<Edit/>}/>
+        </Routes>
+      </main>
+      </Router>
+      
     </div>
   );
 }
